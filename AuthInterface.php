@@ -4,6 +4,8 @@
 namespace ProtocolLive\SuperLauda\Core;
 
 /**
- * @version 2026.03.29.00
+ * @version 2026.07.19.00
  */
-interface AuthInterface{}
+interface AuthInterface{
+  public static function Auth():bool;
+}
