@@ -5,7 +5,7 @@ namespace ProtocolLive\SuperLauda\Core;
 use DomainException;
 
 /**
- * @version 2026.07.19.00
+ * @version 2026.07.25.00
  */
 final class Template{
   private string $Template;
@@ -45,7 +45,7 @@ final class Template{
       $temp = basename($temp[0]['file'], '.php');
       $file = $this->Dir . '/' . $this->Template . '/' . $temp . '/' . $File;
       if(is_file($file) === false):
-        error_log('Ftemplate file ' . $file . ' not found');
+        error_log('Template file ' . $file . ' not found');
         return false;
       endif;
       require $file;

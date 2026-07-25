@@ -5,7 +5,7 @@ namespace ProtocolLive\SuperLauda\Core;
 use HttpCode;
 
 /**
- * @version 2026.07.18.00
+ * @version 2026.07.24.00
  */
 abstract class Route{
   public static function Route():Response{
@@ -30,7 +30,7 @@ abstract class Route{
       return new Response(Code: HttpCode::BadRequest);
     endif;
     if(method_exists($cls, $mth) === false):
-      error_log('Não encontrado: ' . $cls . '::' . $mth);
+      error_log('Rota não encontrada: ' . $cls . '::' . $mth);
       return new Response(Code: HttpCode::NotFound);
     endif;
     if(in_array(AuthInterface::class, class_implements($cls))
