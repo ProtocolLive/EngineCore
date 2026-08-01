@@ -1,7 +1,7 @@
 <?php
 //Protocol Corporation Ltda.
 
-namespace ProtocolLive\EngineCore\Core;
+namespace ProtocolLive\EngineCore;
 
 /**
  * @version 2026.07.19.00
