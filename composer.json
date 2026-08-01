@@ -5,8 +5,10 @@
     "php": ">=8.1",
     "protocollive/phptools": "*"
   },
-  "psr-4": {
-    "ProtocolLive\\EngineCore\\": "src/"
+  "autoload": {
+    "psr-4": {
+      "ProtocolLive\\EngineCore\\": "src/"
+    }
   },
   "license": "MIT",
   "authors": [
