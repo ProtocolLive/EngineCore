@@ -1,14 +1,16 @@
 <?php
 //Protocol Corporation Ltda.
 
-namespace ProtocolLive\SuperLauda\Core;
+namespace ProtocolLive\EngineCore\Core;
 use HttpCode;
 
 /**
  * @version 2026.07.24.00
  */
 abstract class Route{
-  public static function Route():Response{
+  public static function Route(
+    string $Project
+  ):Response{
     DebugTrace();
     if(isset($_SERVER['PATH_INFO'])):
       $rota = explode('/', $_SERVER['PATH_INFO']);
@@ -22,7 +24,7 @@ abstract class Route{
       $rota = [null, 'Index', 'Index'];
     endif;
 
-    $cls = 'ProtocolLive\SuperLauda\Controllers\\' . $rota[1];
+    $cls = 'ProtocolLive\\' . $Project . '\Controllers\\' . $rota[1];
     $mth = 'Route_' . $rota[2];
     if(($_SERVER['REQUEST_METHOD'] ?? null) === 'POST'
     and Csrf(true) === false):
@@ -35,7 +37,7 @@ abstract class Route{
     endif;
     if(in_array(AuthInterface::class, class_implements($cls))
     and $cls::Auth() === false):
-      $cls = 'ProtocolLive\SuperLauda\Controllers\Index';
+      $cls = 'ProtocolLive\\' . $Project . '\Controllers\Index';
       $mth = 'Route_Index';
     endif;
     return call_user_func($cls . '::' . $mth);

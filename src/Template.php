@@ -1,7 +1,7 @@
 <?php
 //Protocol Corporation Ltda.
 
-namespace ProtocolLive\SuperLauda\Core;
+namespace ProtocolLive\EngineCore\Core;
 use DomainException;
 
 /**

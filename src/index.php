@@ -2,7 +2,7 @@
 //Protocol Corporation Ltda.
 //2026.07.27.00
 
-use ProtocolLive\SuperLauda\Core\Route;
+use ProtocolLive\EngineCore\Core\Route;
 
 require(dirname(__DIR__) . '/system/system.php');
 
