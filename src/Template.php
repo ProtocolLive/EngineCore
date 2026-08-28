@@ -5,7 +5,7 @@ namespace ProtocolLive\EngineCore;
 use DomainException;
 
 /**
- * @version 2026.07.25.00
+ * @version 2026.08.28.00
  */
 final class Template{
   private string $Template;
@@ -54,10 +54,9 @@ final class Template{
       $return = ob_get_contents();
       ob_end_clean();
       return $return;
-    else:
-      ob_end_flush();
-      return true;
     endif;
+    ob_end_flush();
+    return true;
   }
 
   public function DirGet():string{
