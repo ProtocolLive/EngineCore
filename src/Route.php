@@ -5,11 +5,12 @@ namespace ProtocolLive\EngineCore;
 use HttpCode;
 
 /**
- * @version 2026.07.24.00
+ * @version 2026.09.14.00
  */
 abstract class Route{
   public static function Route(
-    string $Project
+    string $Project,
+    array $RoutesWithoutCsrf = []
   ):Response{
     DebugTrace();
     if(isset($_SERVER['PATH_INFO'])):
@@ -27,8 +28,8 @@ abstract class Route{
     $cls = 'ProtocolLive\\' . $Project . '\Controllers\\' . $rota[1];
     $mth = 'Route_' . $rota[2];
     if(($_SERVER['REQUEST_METHOD'] ?? null) === 'POST'
-    and Csrf(true) === false):
-      error_log('CSRF falso');
+    and Csrf(true) === false
+    and in_array($rota[1], $RoutesWithoutCsrf) === false):
       return new Response(Code: HttpCode::BadRequest);
     endif;
     if(method_exists($cls, $mth) === false):
