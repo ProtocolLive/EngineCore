@@ -1,10 +1,10 @@
 <?php
 //Protocol Corporation Ltda.
-//2026.07.27.00
+//2026.11.24.00
 
 use ProtocolLive\EngineCore\Route;
 
-require(dirname(__DIR__) . '/system/system.php');
+require(__DIR__ . '/../system/system.php');
 
 $return = Route::Route();
 
