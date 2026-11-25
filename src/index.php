@@ -1,6 +1,8 @@
 <?php
-//Protocol Corporation Ltda.
-//2026.11.24.00
+/**
+ * @author Protocol Corporation Ltda.
+ * @version 2026.11.24.00
+ */
 
 use ProtocolLive\EngineCore\Route;
 
